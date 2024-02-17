@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mirnes Glamočić">
+    <title>FAQ Slider</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>jQuery FAQ Slider</h1>
+        <div class="title"><h2>FAQ Slider using jQuery</h2></div>
+        <ul class="faq">
+            <li class="question"><img src="arrow.png" alt="arrow">How do I select an item using class or ID?</li>
+            <li class="answer">This code selects an element with an ID of "myDivId". Since IDs are unique, this expression always selects either zero or one elements depending upon whether or not an element with the specified ID exists. <code>$( <span class="string">"#myDivId"</span> );</code>This code selects an element with a class of "myCssClass". Since any number of elements can have the same class, this expression will select any number of elements.<code>$( <span class="string"> ".myCssClass"</span> );</code>A jQuery object containing the selected element can be assigned to a JavaScript variable like normal:<code>var myDivElement = $(<span class="string"> "#myDivId"</span> );</code>Usually, elements in a jQuery object are acted on by other jQuery functions:<code>var myValue = $( <span class="string"> "#myDivId"</span> ).val(); <span class="comment">// Get the value of a form input.</span><br>$( <span class="string"> "#myDivId"</span>).val(<span class="string"> "hello world"</span>); <span class="comment">// Set the value of a form input.</span></code></li>
+            <li class="question"><img src="arrow.png" alt="arrow">How do I select elements when I already have a DOM element?</li>
+            <li class="answer">If you have a variable containing a DOM element, and want to select elements related to that DOM element, simply wrap it in a jQuery object.<code>var myDomElement = document.getElementById(<span class="string">"foo"</span>);<span class="comment">// A plain DOM element.</span><br>$( myDomElement ).find(<span class="string">"a"</span>);<span class="comment">// Finds all anchors inside the DOM element.
+            </span></code>Many people try to concatenate a DOM element or jQuery object with a CSS selector, like so:<code>$( myDomElement +<span class="string">".bar"</span>);<span class="comment">// This is equivalent to $( "[object HTMLElement].bar" );</span></code>Unfortunately, you cannot concatenate strings to objects.</li>
+            <li class="question"><img src="arrow.png" alt="arrow">How do I test whether an element exists?</li>
+            <li class="answer">Use the .length property of the jQuery collection returned by your selector:<code>if ( $(<span class="string">"#myDiv"</span>).length ) {<br>&nbsp;&nbsp;$(<span class="string">"#myDiv"</span>).show();<br>}</code></li>
+            <li class="question"><img src="arrow.png" alt="arrow">How do I determine the state of a toggled element?</li>
+            <li class="answer">You can determine whether an element is collapsed or not by using the :visible and :hidden selectors.<code>var isVisible = $(<span class="string">"#myDiv"</span>).is(<span class="string">":visible"</span> );<br>var isHidden = $(<span class="string">"#myDiv"</span>).is(<span class="string">":hidden"</span>);</code>If you're simply acting on an element based on its visibility, just include :visible or :hidden in the selector expression. For example:<code>$(<span class="string">"#myDiv:visible"</span>).animate({<br>&nbsp;&nbsp;left:<span class="string">"+=200px"</span><br>}, <span class="string">"slow"</span> );</code></li>
+            <li class="question"><img src="arrow.png" alt="arrow">How do I check/uncheck a checkbox input or radio button?</li>
+            <li class="answer">You can check or uncheck a checkbox element or a radio button using the .prop() method:<code><span class="comment">// Check #x</span><br>$(<span class="string">"#x"</span>).prop(<span class="string">"checked"</span>, true );<br><span class="comment">// Uncheck #x</span><br>$(<span class="string">"#x"</span>).prop(<span class="string">"checked"</span>, false );</code></li>
+            <li class="question"><img src="arrow.png" alt="arrow">How do I pull a native DOM element from a jQuery object?</li>
+            <li class="answer">A jQuery object is an array-like wrapper around one or more DOM elements. To get a reference to the actual DOM elements (instead of the jQuery object), you have two options. The first (and fastest) method is to use array notation:<code>$(<span class="string">"#foo"</span>)[ 0 ];<span class="comment">// Equivalent to document.getElementById( "foo" )</span></code>The second method is to use the .get() function:<code>$(<span class="string">"#foo"</span>).get( 0 ); <span class="comment">// Identical to above, only slower.</span></code></li>
+        </ul>
+    </div>
+    <footer><p>Copyright &copy; <span id="currentYear"></span> | All Rights Reserved | Developed by&nbsp;<a href="https://mirnesglamocic.com" target="_blank">Mirnes Glamočić</a></p>
+        <div class="social-icons">
+            <a class="footer-contact" href="https://www.linkedin.com/in/mirnesglamocic" aria-label="visit my LinkedIn profile" target="_blank">
+            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path id="linkedin-icon" fill="#FFF" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+            <a class='footer-contact' href="https://github.com/full-stack-web-developer-and-designer" aria-label="visit my projects on GitHub" target="_blank">
+            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path id="github-icon" fill="#FFF" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></a>
+            <a class="footer-contact" href="https://codepen.io/full-stack-web-developer-and-designer" aria-label="visit my projects on CodePen" target="_blank">
+            <svg class="footer-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path id="codepen-icon" fill="#FFF" d="M502.3 159.7l-234-156c-8-4.9-16.5-5-24.6 0l-234 156C3.7 163.7 0 170.8 0 178v156c0 7.1 3.7 14.3 9.7 18.3l234 156c8 4.9 16.5 5 24.6 0l234-156c6-4 9.7-11.1 9.7-18.3V178c0-7.1-3.7-14.3-9.7-18.3zM278 63.1l172.3 114.9-76.9 51.4L278 165.7V63.1zm-44 0v102.6l-95.4 63.7-76.9-51.4L234 63.1zM44 219.1l55.1 36.9L44 292.8v-73.7zm190 229.7L61.7 334l76.9-51.4L234 346.3v102.6zm22-140.9l-77.7-52 77.7-52 77.7 52-77.7 52zm22 140.9V346.3l95.4-63.7 76.9 51.4L278 448.8zm190-156l-55.1-36.9L468 219.1v73.7z"/></svg></a>
+        </div>
+    </footer>
+</body>
+</html>

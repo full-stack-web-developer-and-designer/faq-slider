@@ -122,3 +122,7 @@ Free to use, modify, and customize.
 Thank you for trying FAQ Slider!
 
 Feel free to send suggestions or improvements.
+
+---
+
+### ⭐ If you find this project helpful, please give it a star!
